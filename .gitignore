@@ -1,3 +1,4 @@
 *.apk
 test_servers
 *.png
+cucumber.json
