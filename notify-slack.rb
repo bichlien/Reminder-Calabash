@@ -28,7 +28,7 @@ jsonData = []
 data_hash.each do |feature|
   tempFeature = {
     title: feature['name'],
-    color: "warning"
+    color: "good"
   }
 
   scenarioFields = []
@@ -37,11 +37,12 @@ data_hash.each do |feature|
     scenarioStep = ''
     scenarioField = {
       title: scenario['name'],
-      color: 'good'
+      color: 'good',
+      mrkdwn: 'true'
     }
 
     scenario['steps'].each do |step|
-      scenarioStep += '\n' + step['name'] + ' - *' + step['result']['status'].upcase + '*'
+      scenarioStep += '\n' + step['name'] + " - *" + step['result']['status'].upcase + "*"
     end
 
     scenarioField['value'] = scenarioStep
@@ -50,7 +51,6 @@ data_hash.each do |feature|
   end
 
   tempFeature['fields'] = scenarioFields
-
   jsonData.push(tempFeature)
 end
 
